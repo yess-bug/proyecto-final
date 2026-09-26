@@ -1,0 +1,482 @@
+/* ================================= */
+/* RESET */
+/* ================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f1fa;
+    color:#333;
+}
+
+/* ================================= */
+/* HEADER (MORADO) */
+/* ================================= */
+header{
+    background:#5c2d91;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:20px 40px;
+    box-shadow:0 5px 10px rgba(92,45,145,.3);
+    border-bottom: 3px solid #ffcc00;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:90px;
+}
+
+.logo h1{
+    font-size:2rem;
+    color: #ffcc00;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.logo p{
+    opacity:.9;
+}
+
+/* ================================= */
+/* BUSCADOR */
+/* ================================= */
+.search{
+    display:flex;
+    gap:10px;
+}
+
+.search input{
+    width:260px;
+    padding:12px;
+    border:2px solid #ffcc00;
+    border-radius:8px;
+    font-size:16px;
+    outline: none;
+}
+
+.search button{
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    background:#ffcc00;
+    color:#333;
+    font-weight: bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.search button:hover{
+    background:#e6b800;
+}
+
+/* ================================= */
+/* MAIN (3 COLUMNAS) */
+/* ================================= */
+main{
+    display:grid;
+    grid-template-columns: 280px 2fr 1fr;
+    gap:25px;
+    padding:30px;
+}
+
+/* ================================= */
+/* LISTA */
+/* ================================= */
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.section-title h2 {
+    color: #5c2d91;
+}
+
+#pokemonCounter, #teamCounter{
+    font-weight:bold;
+    color:#7b3fa0;
+}
+
+/* ================================= */
+/* GRID */
+/* ================================= */
+#pokemonContainer{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+/* ================================= */
+/* TARJETAS */
+/* ================================= */
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 18px rgba(92,45,145,.1);
+    transition:.3s;
+    cursor:pointer;
+    border: 1px solid #e0d4f5;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(92,45,145,.2);
+    border-color: #ffcc00;
+}
+
+.card img{
+    width:100%;
+    height:150px;
+    object-fit:contain;
+    background:#faf8ff;
+    padding:15px;
+}
+
+.card-body{
+    padding:15px;
+}
+
+.card-body h3{
+    margin-bottom:5px;
+    text-transform:capitalize;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.id{
+    color:#777;
+    font-size:.85rem;
+}
+
+.tipo{
+    display:inline-block;
+    margin-top:8px;
+    padding:4px 12px;
+    border-radius:30px;
+    color:white;
+    font-size:.8rem;
+}
+
+/* ================================= */
+/* BOTONES EN TARJETAS */
+/* ================================= */
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.card button{
+    flex: 1;
+    border:none;
+    padding:8px;
+    border-radius: 6px;
+    background:#7b3fa0;
+    color:white;
+    cursor:pointer;
+    font-size: 0.85rem;
+    transition:.3s;
+}
+
+.card button:hover{
+    background:#5c2d91;
+}
+
+.btn-add {
+    background: #cca300 !important;
+    color: #fff !important;
+}
+.btn-add:hover {
+    background: #b38f00 !important;
+}
+
+/* ================================= */
+/* PANEL DE EQUIPO (IZQUIERDA) */
+/* ================================= */
+.team-sidebar{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 18px rgba(92,45,145,.1);
+    position:sticky;
+    top:20px;
+    height:fit-content;
+    border: 1px solid #e0d4f5;
+}
+
+#teamContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.team-slot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #faf8ff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 2px dashed #d1bce3;
+    min-height: 65px;
+}
+
+.team-slot.filled {
+    border: 2px solid #ffcc00;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(255,204,0,0.2);
+}
+
+.team-slot img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.team-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.team-info h4 {
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    color: #5c2d91;
+}
+
+.team-slot button {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+/* ================================= */
+/* PANEL LATERAL DERECHO (DETALLE) */
+/* ================================= */
+.pokemon-detail{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 8px 18px rgba(92,45,145,.1);
+    position:sticky;
+    top:20px;
+    height:fit-content;
+    border: 1px solid #e0d4f5;
+}
+
+#detailContainer{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+}
+
+#detailContainer img{
+    width:180px;
+    margin:auto;
+}
+
+#detailContainer h2{
+    text-transform:capitalize;
+    color: #5c2d91;
+}
+
+#detailContainer h3 {
+    color: #444;
+}
+
+.stats{
+    margin-top:15px;
+}
+
+.stat{
+    margin-bottom:10px;
+}
+
+.stat-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:3px;
+    font-size: 0.85rem;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#e8def8;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg, #7b3fa0, #ffcc00);
+}
+
+.btn-mega {
+    background: linear-gradient(135deg, #ffcc00, #ff9800) !important;
+    color: #333 !important;
+    margin-top: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255,204,0,0.3);
+}
+.btn-mega:hover {
+    background: linear-gradient(135deg, #e6b800, #f57c00) !important;
+}
+
+/* ================================= */
+/* PAGINACION */
+/* ================================= */
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.pagination button{
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    background:#7b3fa0;
+    color:white;
+    font-weight: 500;
+    transition:.3s;
+}
+
+.pagination button:hover{
+    background:#5c2d91;
+}
+
+/* ================================= */
+/* LOADING Y ERROR */
+/* ================================= */
+#loading{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.9);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    z-index:999;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.loader{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:8px solid #e8def8;
+    border-top:8px solid #7b3fa0;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{ transform:rotate(360deg); }
+}
+
+#errorMessage{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#7b3fa0;
+    color:#ffcc00;
+    border: 1px solid #ffcc00;
+    padding:15px 20px;
+    border-radius:10px;
+    box-shadow:0 8px 15px rgba(92,45,145,.3);
+    z-index: 1000;
+    font-weight: bold;
+}
+
+footer{
+    margin-top:30px;
+    background:#3b1d5c;
+    color:white;
+    text-align:center;
+    padding:20px;
+    border-top: 3px solid #ffcc00;
+}
+
+/* ================================= */
+/* TIPOS DE POKÉMON (Mantienen sus colores oficiales) */
+/* ================================= */
+.fire{ background:#F08030; }
+.water{ background:#6890F0; }
+.grass{ background:#78C850; }
+.electric{ background:#F8D030; color:black; }
+.psychic{ background:#F85888; }
+.ice{ background:#98D8D8; color:black; }
+.dragon{ background:#7038F8; }
+.dark{ background:#705848; }
+.fairy{ background:#EE99AC; }
+.fighting{ background:#C03028; }
+.poison{ background:#A040A0; }
+.ground{ background:#E0C068; color:black; }
+.rock{ background:#B8A038; }
+.bug{ background:#A8B820; }
+.ghost{ background:#705898; }
+.steel{ background:#B8B8D0; color:black; }
+.normal{ background:#A8A878; }
+
+/* ================================= */
+/* RESPONSIVE */
+/* ================================= */
+@media(max-width:1200px){
+    main{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:992px){
+    main{
+        grid-template-columns:1fr;
+    }
+    .team-sidebar, .pokemon-detail{
+        position:relative;
+        top:0;
+    }
+}
+
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        text-align:center;
+    }
+    .search{
+        width:100%;
+        flex-direction:column;
+    }
+    .search input{
+        width:100%;
+    }
+}
